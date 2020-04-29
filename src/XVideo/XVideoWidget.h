@@ -12,6 +12,7 @@ public:
 	virtual ~XVideoWidget();
 public slots:
 	void setImage(const cv::Mat& mat);
+	
 protected:
 	virtual void paintEvent(QPaintEvent *e) override;
 private:

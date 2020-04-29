@@ -3,7 +3,10 @@
 #include <QMessageBox>
 #include "XVideoThread.h"
 #include <opencv2/core.hpp>
-XVideoThread* XVideoThread::mInstance = new XVideoThread();
+
+static bool pressSlider = false;
+
+
 XVideoUI::XVideoUI(QWidget *parent)
 	: QWidget(parent)
 {
@@ -16,6 +19,19 @@ XVideoUI::XVideoUI(QWidget *parent)
 		SIGNAL(viewImage_1(const cv::Mat&)),
 		ui.srcVideo_1,
 		SLOT(setImage(const cv::Mat&)));
+	QObject::connect(ui.playSlider,
+		SIGNAL(sliderPressed()),
+		this,
+		SLOT(sliderPressed()));
+	QObject::connect(ui.playSlider,
+		SIGNAL(sliderMoved(int)),
+		this,
+		SLOT(sliderSetPos(int)));
+	QObject::connect(ui.playSlider,
+		SIGNAL(sliderReleased()),
+		this,
+		SLOT(sliderReleased()));
+	startTimer(40);
 }
 
 void XVideoUI::open()
@@ -34,4 +50,28 @@ void XVideoUI::open()
 	}
 }
 
+void XVideoUI::sliderPressed()
+{
+	pressSlider = true;
+}
+
+void XVideoUI::sliderSetPos(int pos)
+{
+	XVideoThread::getInstance()->seek((double)pos/ui.playSlider->maximum());
+}
+
+void XVideoUI::sliderReleased()
+{
+	pressSlider = false;
+}
+
+void XVideoUI::timerEvent(QTimerEvent *event)
+{
+	if (pressSlider)
+	{
+		return;
+	}
+	double pos = XVideoThread::getInstance()->getPos();
+	ui.playSlider->setValue(pos*ui.playSlider->maximum());
+}
 

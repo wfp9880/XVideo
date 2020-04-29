@@ -9,8 +9,14 @@ class XVideoUI : public QWidget
 
 public:
 	XVideoUI(QWidget *parent = Q_NULLPTR);
+
 public slots:
 	void open();
+	void sliderPressed();
+	void sliderSetPos(int);
+	void sliderReleased();
+protected:
+	virtual void timerEvent(QTimerEvent *event);
 private:
 	Ui::XVideoUIClass ui;
 };
