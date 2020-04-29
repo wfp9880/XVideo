@@ -23,8 +23,8 @@ QT_BEGIN_NAMESPACE
 class Ui_XVideoUIClass
 {
 public:
-    QPushButton *closeWindowButton;
     XVideoWidget *srcVideo_1;
+    QPushButton *closeWindowButton;
     QPushButton *openFileButton;
 
     void setupUi(QWidget *XVideoUIClass)
@@ -39,19 +39,19 @@ public:
 "}\n"
 "\n"
 ""));
+        srcVideo_1 = new XVideoWidget(XVideoUIClass);
+        srcVideo_1->setObjectName(QStringLiteral("srcVideo_1"));
+        srcVideo_1->setGeometry(QRect(10, 40, 600, 400));
         closeWindowButton = new QPushButton(XVideoUIClass);
         closeWindowButton->setObjectName(QStringLiteral("closeWindowButton"));
-        closeWindowButton->setGeometry(QRect(770, 0, 31, 21));
+        closeWindowButton->setGeometry(QRect(730, 0, 75, 23));
         closeWindowButton->setStyleSheet(QString::fromUtf8("font: 11pt \"\347\255\211\347\272\277\";\n"
 "color:rgb(255,255,255);\n"
 "background-color:rgb(50,50,50)"));
         closeWindowButton->setFlat(true);
-        srcVideo_1 = new XVideoWidget(XVideoUIClass);
-        srcVideo_1->setObjectName(QStringLiteral("srcVideo_1"));
-        srcVideo_1->setGeometry(QRect(0, 40, 471, 321));
         openFileButton = new QPushButton(XVideoUIClass);
         openFileButton->setObjectName(QStringLiteral("openFileButton"));
-        openFileButton->setGeometry(QRect(470, 370, 75, 23));
+        openFileButton->setGeometry(QRect(530, 470, 75, 25));
         openFileButton->setStyleSheet(QString::fromUtf8("QPushButton:!hover\n"
 "{\n"
 "	background-color:rgb(50,50,50);\n"

@@ -22,13 +22,23 @@
 
 </string>
   </property>
+  <widget class="XVideoWidget" name="srcVideo_1">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>40</y>
+     <width>600</width>
+     <height>400</height>
+    </rect>
+   </property>
+  </widget>
   <widget class="QPushButton" name="closeWindowButton">
    <property name="geometry">
     <rect>
-     <x>770</x>
+     <x>730</x>
      <y>0</y>
-     <width>31</width>
-     <height>21</height>
+     <width>75</width>
+     <height>23</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -43,23 +53,13 @@ background-color:rgb(50,50,50)</string>
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="XVideoWidget" name="srcVideo_1">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>40</y>
-     <width>471</width>
-     <height>321</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QPushButton" name="openFileButton">
    <property name="geometry">
     <rect>
-     <x>470</x>
-     <y>370</y>
+     <x>530</x>
+     <y>470</y>
      <width>75</width>
-     <height>23</height>
+     <height>25</height>
     </rect>
    </property>
    <property name="styleSheet">

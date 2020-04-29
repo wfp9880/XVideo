@@ -105,7 +105,7 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="XVideoThread.h" />
-    <ClInclude Include="XVideoWidget.h" />
+    <QtMoc Include="XVideoWidget.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
